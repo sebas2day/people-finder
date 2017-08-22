@@ -1,0 +1,61 @@
+<main>
+
+<h1>People</h1>
+
+<table class="table table-striped">
+	<thead class="thead-inverse">
+		<tr>
+			<th style="width: 150px;" >
+				<div class="form-group">
+					<div>Position</div>
+					<input class="form-control" type="text" [(ngModel)]="position" style="width: 150px;" />
+				</div>
+			</th>
+			<th style="width: 150px;" >
+				<div class="form-group">
+					<div>Firstname</div>
+					<input class="form-control" type="text" [(ngModel)]="firstName" style="width: 150px;" />
+				</div>
+			</th>
+			<th style="width: 150px;" >
+				<div class="form-group">
+					<div>Lastname</div>
+					<input class="form-control" type="text" [(ngModel)]="lastName" style="width: 150px;" />
+				</div>
+			</th>
+			<th>
+				<div class="form-group">
+					<div>Theory</div>
+					<ss-multiselect-dropdown [options]="theories" [settings]="multiselectSettings" [(ngModel)]="selectedTheories" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
+				</div>
+			</th>
+			<th>
+				<div class="form-group">
+					<div>Methods</div>
+					<ss-multiselect-dropdown [options]="methods" [settings]="multiselectSettings" [(ngModel)]="selectedMethods" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
+				</div>
+			</th>
+			<th>Contact</th>
+			<th>Website</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let person of persons">
+			<td>{{ person.position }}</td>
+			<td>{{ person.firstName }}</td>
+			<td>{{ person.lastName }}</td>
+			<td>
+				<span class="badge badge-secondary" *ngFor="let theory of person.theories" style="margin-right:3px">{{ theory }}</span>
+			</td>
+			<td>
+				<span class="badge badge-secondary" *ngFor="let method of person.methods" style="margin-right:3px">{{ method }}</span>
+			</td>
+			<td><a href="mailto: {{ person.contact }}">{{ person.contact }}</a></td>
+			<td><a href="{{ person.website }}">{{ person.website }}</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<input id="file" type="file" (change)="fileChanged($event)">
+
+</main>

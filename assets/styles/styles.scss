@@ -1,0 +1,10 @@
+@import 'theme';
+@import 'fonts';
+@import 'icons';
+@import 'mixin';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+body {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
