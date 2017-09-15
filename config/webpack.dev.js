@@ -20,6 +20,7 @@ module.exports = webpackMerge(commonConfig, {
 
   devServer: {
     historyApiFallback: true,
-    stats: 'minimal'    
+    stats: 'minimal',
+	port: process.env.PORT || 8080
   }
 });
